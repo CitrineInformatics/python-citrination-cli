@@ -6,11 +6,9 @@ class App(cli.app.CommandLineApp):
     def main(self):
         """Upload a document"""
         client = citrination_client.CitrinationClient(self.params.api_key, self.params.citrination_host)
-        response = client.upload_file(self.params.file, self.params.data_set_id)
-        print("Upload a document")
-        if response is not None:
-            print(response.status_code)
-            print(response.json)
+        message = client.upload_file(self.params.file, self.params.data_set_id)
+        if message is not None:
+            print message
         else:
             print("Upload failed due to API server being unable to resolve the upload location.")
 

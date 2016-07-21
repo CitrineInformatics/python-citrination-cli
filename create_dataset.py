@@ -8,12 +8,11 @@ class App(cli.app.CommandLineApp):
         """Create a Citrination dataset"""
         client = citrination_client.CitrinationClient(self.params.api_key, self.params.citrination_host)
         response = client.create_data_set()
-        print("Create a Citrination dataset.")
-        print(response.status_code)
         if response.status_code == 200:
-        	print(response.json)
+            print("Data set has been created.")
+            print(response.content)
         else:
-			print("Data set creation failed.")
+            print("Data set creation failed.")
 
     def setup(self):
         """Setup this application."""

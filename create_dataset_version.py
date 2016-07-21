@@ -7,11 +7,10 @@ class App(cli.app.CommandLineApp):
     def main(self):
         """Version a Citrination dataset"""
         client = citrination_client.CitrinationClient(self.params.api_key, self.params.citrination_host)
-        response = client.create_data_set_version()
-        print("Version a Citrination dataset version")
-        print(response.status_code)
+        response = client.create_data_set_version(self.params.dataset)
         if response.status_code == 200:
-            print(response.json)
+            print("Data set version has been created.")
+            print response.content
         else:
             print("Data set version creation failed.")
 
