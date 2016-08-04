@@ -1,5 +1,6 @@
 import cli.app
 
+
 class CommandRouter(cli.app.CommandLineApp):
     """
     Route commands to applications.
@@ -16,36 +17,34 @@ class CommandRouter(cli.app.CommandLineApp):
         if len(self.argv) > 1:
             self.proxied_argv = self.argv[1::]
             self.argv = self.argv[0:2]
-
         cli.app.CommandLineApp.setup(self)
-
         self.add_param('command', type=str, help="choose from: upload, create_dataset, create_dataset_version")
 
     def main(self):
         """
+        Run the application.
         """
         command = self.params.command.lower()
-        App = self.match(command)
+        matched = self.match(command)
 
         # If an application is matched, run it; else, throw an error.
-        if App:
-            app = App(argv=self.proxied_argv)
+        if matched:
+            app = matched(argv=self.proxied_argv)
             app.run()
         else:
-            raise cli.app.Abort("Aborted: command not found.")
+            raise cli.app.Abort("Aborted: command not found: " + self.params.command)
 
     def match(self, command):
         """
         Iterate through the command registry to find a matching application.
         """
-        for App, commands in self.apps.items():
+        for app, commands in self.apps.items():
             if command in commands:
-                return App
-
+                return app
         return False
 
-    def register(self, App, commands):
+    def register(self, app, commands):
         """
         Register an application with this router.
         """
-        self.apps[App] = commands
+        self.apps[app] = commands
