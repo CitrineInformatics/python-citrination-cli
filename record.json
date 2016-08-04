@@ -1,0 +1,10 @@
+{
+  "category": "system.chemical",
+  "uid": "gantest",
+  "names": "test",
+  "properties": [{
+    "name": "Creep rate",
+    "scalars": "10",
+    "units": "s$^{-1}$"
+  }]
+}
