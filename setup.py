@@ -1,14 +1,14 @@
 from setuptools import setup, find_packages
 
 setup(name='citrination',
-      version='1.0.2',
+      version='1.0.3',
       url='http://github.com/CitrineInformatics/python-citrination-cli',
       description='Command line interface for interacting with Citrination sites',
       packages=find_packages(),
       install_requires=[
             'argparse',
             'pyCLI==2.0.3',
-            'citrination-client==1.1.6'
+            'citrination-client==1.1.11'
       ],
       entry_points={
             'console_scripts': [
