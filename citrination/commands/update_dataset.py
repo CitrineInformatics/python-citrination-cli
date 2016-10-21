@@ -37,7 +37,10 @@ class App(cli.app.CommandLineApp):
                        required=False)
         self.add_param("-D", "--description", help="Provide a description for the dataset.",
                        required=False)
-        self.add_param("-s", "--share", help="Share dataset with all users of the site.",
+        self.add_param("-s", "--share",
+                       help="Share dataset with all users of the site. A value of 1 means the dataset "
+                       "will be shared with everyone on the site. A value of 0 means the dataset will only "
+                       "be visible by the dataset owner.",
                        required=False, default=None, choices=['0','1'])
         self.add_param("-d", "--dataset", help="Id of the dataset to create a new version for.", required=True,
                        type=int)
