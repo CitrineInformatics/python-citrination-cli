@@ -7,17 +7,17 @@ class App(cli.app.CommandLineApp):
 
     def main(self):
         """
-        Create a Citrination dataset.
+        Update a Citrination dataset.
         """
         url = determine_url(self.params.host, self.params.project)
         client = citrination_client.CitrinationClient(self.params.api_key, url)
 
-        response = client.create_data_set(self.params.name, self.params.description, self.params.share)
+        response = client.update_data_set(self.params.dataset, self.params.name, self.params.description, self.params.share)
         if response.status_code == 200:
-            print("Data set has been created.")
+            print("Data set has been updated.")
             print(response.content)
         else:
-            print("Data set creation failed: " + response.reason)
+            print("Data set update failed: " + response.reason)
 
     def setup(self):
         """
@@ -42,6 +42,9 @@ class App(cli.app.CommandLineApp):
                        "will be shared with everyone on the site. A value of 0 means the dataset will only "
                        "be visible by the dataset owner.",
                        required=False, default=None, choices=['0','1'])
+        self.add_param("-d", "--dataset", help="Id of the dataset to create a new version for.", required=True,
+                       type=int)
+
 
 if __name__ == "__main__":
     adder = App()

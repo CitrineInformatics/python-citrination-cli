@@ -18,7 +18,7 @@ class CommandRouter(cli.app.CommandLineApp):
             self.proxied_argv = self.argv[1::]
             self.argv = self.argv[0:2]
         cli.app.CommandLineApp.setup(self)
-        self.add_param('command', type=str, help="choose from: upload, create_dataset, create_dataset_version")
+        self.add_param('command', type=str, help="choose from: upload, create_dataset, update_dataset, create_dataset_version")
 
     def main(self):
         """
