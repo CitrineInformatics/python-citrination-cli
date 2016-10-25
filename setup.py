@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name='citrination',
-      version='1.0.5',
+      version='1.0.6',
       url='http://github.com/CitrineInformatics/python-citrination-cli',
       description='Command line interface for interacting with Citrination sites',
       packages=find_packages(),
