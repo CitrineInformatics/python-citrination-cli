@@ -11,7 +11,7 @@ class App(cli.app.CommandLineApp):
         """
         url = determine_url(self.params.host, self.params.project)
         client = citrination_client.CitrinationClient(self.params.api_key, url)
-        message = client.upload(self.params.file, self.params.data_set_id)
+        message = client.upload_file(self.params.file, self.params.data_set_id)
         if message is not None:
             print message
         else:
