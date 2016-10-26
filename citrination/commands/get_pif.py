@@ -31,7 +31,7 @@ class App(cli.app.CommandLineApp):
                             "both are set.")
         self.add_param("-k", "--api_key", help="Your API key for the project that you are connecting to.",
                        required=True)
-        self.add_param("-d", "--dataset_id", help="Id of the dataset to which the PIF belongs.", required=True, type=int)
+        self.add_param("-d", "--dataset_id", help="ID of the dataset to which the PIF belongs.", required=True, type=int)
         self.add_param("-i", "--pif_id", help="The UID for the PIF you are retrieving.", required=True)
         self.add_param("-v", "--set_version", help="The dataset version in which to search for the PIF.", required=False, type=int)
 
