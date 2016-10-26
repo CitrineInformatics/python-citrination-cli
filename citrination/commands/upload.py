@@ -31,7 +31,7 @@ class App(cli.app.CommandLineApp):
                             "both are set.")
         self.add_param("-k", "--api_key", help="Your API key for the project that you are connecting to.",
                        required=True)
-        self.add_param("-f", "--file", help="Path to the file to upload.", required=True)
+        self.add_param("-f", "--file", help="Path to the file or directory to upload.", required=True)
         self.add_param("-d", "--data_set_id", help="Id of the dataset to upload the file to.", required=True, type=int)
 
 if __name__ == "__main__":
