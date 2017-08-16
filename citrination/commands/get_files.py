@@ -25,7 +25,6 @@ class App(cli.app.CommandLineApp):
                 download_file(file['url'], file['filename'], directory_name)
         elif files:
             if not make_directory(directory_name): return false
-            print(files)             
             versions_arr = files['versions']
             for version in versions_arr:
                 files_arr = version['files']
