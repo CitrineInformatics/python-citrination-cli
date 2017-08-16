@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(name='citrination',
       author='Kyle Michel',
       author_email='kyle@citrine.io',
-      version='1.1.0',
+      version='1.1.1',
       url='http://github.com/CitrineInformatics/python-citrination-cli',
       description='Command line interface for interacting with Citrination sites',
       packages=find_packages(),
