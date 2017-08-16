@@ -10,7 +10,7 @@ setup(name='citrination',
       install_requires=[
             'argparse',
             'pyCLI==2.0.3',
-            'citrination-client==1.5.2'
+            'citrination-client==1.5.3'
       ],
       entry_points={
             'console_scripts': [
